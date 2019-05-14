@@ -1,6 +1,6 @@
 {
   "name": "js-httprequest",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "httprequest tool of js",
   "keywords": [
     "common",
@@ -15,7 +15,7 @@
   "engines": {
     "node": "*"
   },
-  "main": "./lib/http_request.js",
+  "main": "lib/http_request.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/pefish/js-httprequest"
