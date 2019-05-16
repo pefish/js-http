@@ -171,10 +171,10 @@ inherits@2:
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
   integrity sha1-Yzwsg+PaQqUC9SRmAiSA9CCCYd4=
 
-js-node-assist@^0.5.6:
-  version "0.5.6"
-  resolved "https://registry.yarnpkg.com/js-node-assist/-/js-node-assist-0.5.6.tgz#2c240ed56bacb2395047d271a5c7aeccfea9107f"
-  integrity sha512-NLMyvOfUv8rnPu2JKCIEM6VptbuOk8l1meKIV0ew5j9zzBHM1iXg6mVV6cPb8pYXuSnOxUCitSRjA6/1LZ7U3Q==
+js-node-assist@^0.5.8:
+  version "0.5.8"
+  resolved "https://registry.yarnpkg.com/js-node-assist/-/js-node-assist-0.5.8.tgz#02f8a5d9d541eb4f4cc3edfc783af65e219a393d"
+  integrity sha512-zzaMQ8r3XnVFY8KvKgdXaHhRqm1rDJizdlE04Zktay58ObmiNNmUqCBSPSlABlQTiyza5wpSNIFHQLQqHrwl0g==
   dependencies:
     bignumber.js "^8.1.1"
     p-js-assert "^0.0.1"

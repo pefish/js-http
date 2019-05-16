@@ -1,6 +1,6 @@
 {
   "name": "js-httprequest",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "httprequest tool of js",
   "keywords": [
     "common",
@@ -34,7 +34,7 @@
     "typescript": "^3.4.5"
   },
   "dependencies": {
-    "js-node-assist": "^0.5.6",
+    "js-node-assist": "^0.5.8",
     "p-js-error": "^0.0.4",
     "restler": "^3.4.0"
   }
