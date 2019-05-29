@@ -1,6 +1,6 @@
 {
-  "name": "js-httprequest",
-  "version": "0.0.4",
+  "name": "@pefish/js-util-httprequest",
+  "version": "0.0.5",
   "description": "httprequest tool of js",
   "keywords": [
     "common",
@@ -23,7 +23,8 @@
   "scripts": {
     "build": "tsc && yarn tslint",
     "test": "mocha --timeout 10000 --require ts-node/register tests/*.test.js",
-    "tslint": "tslint -c tslint.json -p tsconfig.json"
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
+    "prepublish": "yarn build"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
