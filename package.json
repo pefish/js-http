@@ -1,6 +1,6 @@
 {
   "name": "@pefish/js-util-httprequest",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "httprequest tool of js",
   "keywords": [
     "common",
@@ -21,8 +21,8 @@
     "url": "https://github.com/pefish/js-httprequest"
   },
   "scripts": {
-    "build": "tsc && yarn tslint",
-    "test": "mocha --timeout 10000 --require ts-node/register tests/*.test.js",
+    "build": "rm -rf lib types && tsc && yarn tslint",
+    "test": "mocha --timeout 10000 --require ts-node/register src/**/*.test.ts",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "prepublish": "yarn build"
   },
@@ -35,8 +35,8 @@
     "typescript": "^3.4.5"
   },
   "dependencies": {
-    "js-node-assist": "^0.5.8",
-    "p-js-error": "^0.0.4",
+    "@pefish/js-error": "^0.0.5",
+    "@pefish/js-node-assist": "^0.6.2",
     "restler": "^3.4.0"
   }
 }

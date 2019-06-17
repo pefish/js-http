@@ -1,6 +1,6 @@
-import 'js-node-assist'
+import '@pefish/js-node-assist'
 import request from 'restler'
-import ErrorHelper from 'p-js-error'
+import ErrorHelper from '@pefish/js-error'
 
 
 declare global {
@@ -9,6 +9,16 @@ declare global {
       logger: any;
     }
   }
+}
+
+
+function printResult (data: any) {
+  for (const [k, v] of Object.entries(data)) {
+    if ([`key`, `pass`, `password`, `seed`].includes(k)) {
+      data[k] = `****`
+    }
+  }
+  global.logger.info(`success: ${JSON.stringify(data)}`)
 }
 
 /**
@@ -28,6 +38,7 @@ export default class HttpRequestUtil {
       request.get(url, {
         timeout: 10000
       }).on('success', function (data, res) {
+        global[`debug`] && printResult(data)
         resolve({
           data: data,
           res: res
@@ -63,7 +74,7 @@ export default class HttpRequestUtil {
         timeout: 10000,
         headers: headers
       }).on('success', function (data, res) {
-        global[`debug`] && global.logger.info(`success: ${JSON.stringify(data)}`)
+        global[`debug`] && printResult(data)
         resolve(data)
         this.abort()
       }).on('failed', (data, res) => {
@@ -120,7 +131,7 @@ export default class HttpRequestUtil {
           request.parsers.json(data, callback)
         }
       }).on('success', function (data, res) {
-        global[`debug`] && global.logger.info(`success: ${JSON.stringify(data)}`)
+        global[`debug`] && printResult(data)
         resolve(data)
         this.abort()
       }).on('failed', (data, res) => {
@@ -151,7 +162,7 @@ export default class HttpRequestUtil {
           request.parsers.json(data, callback)
         }
       }).on('success', function (data, res) {
-        global[`debug`] && global.logger.info(`success: ${JSON.stringify(data)}`)
+        global[`debug`] && printResult(data)
         resolve(data)
         this.abort()
       }).on('failed', (data, res) => {
@@ -186,7 +197,7 @@ export default class HttpRequestUtil {
         username: username,
         password: password
       }).on('success', function (data, res) {
-        global[`debug`] && global.logger.info(`success: ${JSON.stringify(data)}`)
+        global[`debug`] && printResult(data)
         resolve(data)
         this.abort()
       }).on('failed', (data, res) => {
@@ -214,7 +225,7 @@ export default class HttpRequestUtil {
         username: username,
         password: password
       }).on('success', function (data, res) {
-        global[`debug`] && global.logger.info(`success: ${JSON.stringify(data)}`)
+        global[`debug`] && printResult(data)
         resolve(data)
         this.abort()
       }).on('failed', (data, res) => {
