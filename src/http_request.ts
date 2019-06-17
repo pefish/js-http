@@ -13,12 +13,13 @@ declare global {
 
 
 function printResult (data: any) {
-  for (const [k, v] of Object.entries(data)) {
+  const temp = Object.assign({}, data)
+  for (const [k, v] of Object.entries(temp)) {
     if ([`key`, `pass`, `password`, `seed`].includes(k)) {
-      data[k] = `****`
+      temp[k] = `****`
     }
   }
-  global.logger.info(`success: ${JSON.stringify(data)}`)
+  global.logger.info(`success: ${JSON.stringify(temp)}`)
 }
 
 /**
