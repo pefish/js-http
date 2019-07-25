@@ -31,6 +31,11 @@
     "@pefish/js-error" "^0.1.1"
     bignumber.js "^8.1.1"
 
+"@pefish/js-util-desensitize@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@pefish/js-util-desensitize/-/js-util-desensitize-0.0.3.tgz#83336a64d4be0e1c952e9799f3c0404bca8cee97"
+  integrity sha512-dYRZArm/4JWSnVEU2InLFmECfM6x88ix6qLPOJZQJp450FBsZDNvCaIIvPPQVqkZSeR5V6hDTxLd20INwnbXGw==
+
 "@types/chai@^4.1.7":
   version "4.1.7"
   resolved "https://registry.yarnpkg.com/@types/chai/-/chai-4.1.7.tgz#1b8e33b61a8c09cbe1f85133071baa0dbf9fa71a"

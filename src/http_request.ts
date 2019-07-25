@@ -1,7 +1,7 @@
 import '@pefish/js-node-assist'
 import request from 'restler'
 import ErrorHelper from '@pefish/js-error'
-
+import DesensitizeUtil from '@pefish/js-util-desensitize'
 
 declare global {
   namespace NodeJS {
@@ -9,17 +9,6 @@ declare global {
       logger: any;
     }
   }
-}
-
-
-function printResult (data: any) {
-  const temp = Object.assign({}, data)
-  for (const [k, v] of Object.entries(temp)) {
-    if ([`key`, `pass`, `password`, `seed`].includes(k)) {
-      temp[k] = `****`
-    }
-  }
-  global.logger.info(`success: ${JSON.stringify(temp)}`)
 }
 
 /**
@@ -39,7 +28,7 @@ export default class HttpRequestUtil {
       request.get(url, {
         timeout: 10000
       }).on('success', function (data, res) {
-        global[`debug`] && printResult(data)
+        global.logger.debug(`success: ${DesensitizeUtil.desensitizeObjectToString(data)}`)
         resolve({
           data: data,
           res: res
@@ -75,7 +64,7 @@ export default class HttpRequestUtil {
         timeout: 10000,
         headers: headers
       }).on('success', function (data, res) {
-        global[`debug`] && printResult(data)
+        global.logger.debug(`success: ${DesensitizeUtil.desensitizeObjectToString(data)}`)
         resolve(data)
         this.abort()
       }).on('failed', (data, res) => {
@@ -132,7 +121,7 @@ export default class HttpRequestUtil {
           request.parsers.json(data, callback)
         }
       }).on('success', function (data, res) {
-        global[`debug`] && printResult(data)
+        global.logger.debug(`success: ${DesensitizeUtil.desensitizeObjectToString(data)}`)
         resolve(data)
         this.abort()
       }).on('failed', (data, res) => {
@@ -163,7 +152,7 @@ export default class HttpRequestUtil {
           request.parsers.json(data, callback)
         }
       }).on('success', function (data, res) {
-        global[`debug`] && printResult(data)
+        global.logger.debug(`success: ${DesensitizeUtil.desensitizeObjectToString(data)}`)
         resolve(data)
         this.abort()
       }).on('failed', (data, res) => {
@@ -198,7 +187,7 @@ export default class HttpRequestUtil {
         username: username,
         password: password
       }).on('success', function (data, res) {
-        global[`debug`] && printResult(data)
+        global.logger.debug(`success: ${DesensitizeUtil.desensitizeObjectToString(data)}`)
         resolve(data)
         this.abort()
       }).on('failed', (data, res) => {
@@ -226,7 +215,7 @@ export default class HttpRequestUtil {
         username: username,
         password: password
       }).on('success', function (data, res) {
-        global[`debug`] && printResult(data)
+        global.logger.debug(`success: ${DesensitizeUtil.desensitizeObjectToString(data)}`)
         resolve(data)
         this.abort()
       }).on('failed', (data, res) => {
