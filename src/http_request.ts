@@ -1,4 +1,3 @@
-import '@pefish/js-node-assist'
 import request from 'restler'
 import ErrorHelper from '@pefish/js-error'
 import DesensitizeUtil from '@pefish/js-util-desensitize'
