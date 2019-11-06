@@ -1,10 +1,3 @@
-declare global {
-    namespace NodeJS {
-        interface Global {
-            logger: any;
-        }
-    }
-}
 export interface RequestOpts {
     headers?: {
         [x: string]: string;

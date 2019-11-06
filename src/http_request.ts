@@ -1,14 +1,6 @@
 import DesensitizeUtil from '@pefish/js-util-desensitize'
 import request from 'request-promise-native'
 
-declare global {
-  namespace NodeJS {
-    interface Global {
-      logger: any;
-    }
-  }
-}
-
 export interface RequestOpts { 
   headers?: {[x: string]: string}, 
   params?: {[x: string]: string},
