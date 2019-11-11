@@ -3,7 +3,7 @@ import request from 'request-promise-native'
 
 export interface RequestOpts { 
   headers?: {[x: string]: string}, 
-  params?: {[x: string]: string},
+  params?: {[x: string]: any},
   resolveWithFullResponse?: boolean,
   timeout?: number,
   json?: boolean,

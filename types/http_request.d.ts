@@ -3,7 +3,7 @@ export interface RequestOpts {
         [x: string]: string;
     };
     params?: {
-        [x: string]: string;
+        [x: string]: any;
     };
     resolveWithFullResponse?: boolean;
     timeout?: number;
