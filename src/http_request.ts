@@ -30,6 +30,21 @@ interface RequestOpts1 {
   [x: string]: any,
 }
 
+
+function getGlobal (): any { 
+  // @ts-ignore
+  if (typeof self !== 'undefined') { return self; } 
+  // @ts-ignore
+  if (typeof window !== 'undefined') { return window; } 
+  // @ts-ignore
+  if (typeof global !== 'undefined') { return global; } 
+  throw new Error('unable to locate global object'); 
+}
+
+function getLogger (): any {
+  return getGlobal().logger || console
+}
+
 /**
  * http请求工具类
  */
@@ -37,14 +52,14 @@ export default class HttpRequestUtil {
 
   static async request (opts: RequestOpts1): Promise<any> {
     delete opts.params
-    global.logger.debug(`request：${opts.url}, opts: ${DesensitizeUtil.desensitizeObjectToString(opts)}`)
+    getLogger().debug(`request：${opts.url}, opts: ${DesensitizeUtil.desensitizeObjectToString(opts)}`)
     const resp = await request({
       json: true,
       timeout: 10000,
       resolveWithFullResponse: false,
       ...opts,
     })
-    global.logger.debug(`success: ${DesensitizeUtil.desensitizeObjectToString(!!opts.resolveWithFullResponse ? resp.body : resp)}`)
+    getLogger().debug(`success: ${DesensitizeUtil.desensitizeObjectToString(!!opts.resolveWithFullResponse ? resp.body : resp)}`)
     return resp
   }
 
