@@ -1,6 +1,6 @@
 {
   "name": "@pefish/js-util-httprequest",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "httprequest tool of js",
   "keywords": [
     "common",

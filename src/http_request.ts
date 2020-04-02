@@ -4,7 +4,7 @@ import request from 'request-promise-native'
 export interface RequestOpts { 
   headers?: {[x: string]: string}, 
   params?: {[x: string]: any},
-  resolveWithFullResponse?: boolean,
+  resolveWithFullResponse?: boolean,  // 是否返回整个response，如果是false，则非200会抛错，200只返回body
   timeout?: number,
   json?: boolean,
   auth?: {
@@ -56,11 +56,17 @@ export default class HttpRequestUtil {
     const resp = await request({
       json: true,
       timeout: 10000,
-      resolveWithFullResponse: false,
       ...opts,
+      resolveWithFullResponse: true,
     })
-    getLogger().debug(`success: ${DesensitizeUtil.desensitizeObjectToString(!!opts.resolveWithFullResponse ? resp.body : resp)}`)
-    return resp
+    getLogger().debug(`success: ${DesensitizeUtil.desensitizeObjectToString(resp.body || ``)}`)
+    if (!!opts.resolveWithFullResponse) {
+      return resp
+    }
+    if (resp.statusCode !== 200) {
+      throw new Error(resp.statusMessage)
+    }
+    return resp.body
   }
 
   static async get (url: string, opts?: RequestOpts): Promise<any> {
