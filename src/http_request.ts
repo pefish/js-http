@@ -3,7 +3,8 @@ import request from 'request-promise-native'
 
 export interface RequestOpts { 
   headers?: {[x: string]: string}, 
-  params?: {[x: string]: any},
+  params?: {[x: string]: any},  // get请求会放入url，post请求会放入body
+  body?: {[x: string]: any},  // 与params同时生效。post下params将失效
   resolveWithFullResponse?: boolean,  // 是否返回整个response，如果是false，则非200会抛错，200只返回body
   timeout?: number,
   json?: boolean,
@@ -50,7 +51,7 @@ function getLogger (): any {
  */
 export default class HttpRequestUtil {
 
-  static async request (opts: RequestOpts1): Promise<any> {
+  private static async request (opts: RequestOpts1): Promise<any> {
     delete opts.params
     getLogger().debug(`request：${opts.url}, opts: ${DesensitizeUtil.desensitizeObjectToString(opts)}`)
     const resp = await request({
