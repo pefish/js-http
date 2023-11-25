@@ -43,13 +43,14 @@ function getGlobal (): any {
 }
 
 function getLogger (): any {
+  // @ts-ignore
   return getGlobal().logger || console
 }
 
 /**
  * http请求工具类
  */
-export default class HttpRequestUtil {
+export default class HttpUtil {
 
   private static async request (opts: RequestOpts1): Promise<any> {
     delete opts.params

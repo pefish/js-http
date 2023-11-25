@@ -19,7 +19,7 @@ export interface RequestOpts {
 /**
  * http请求工具类
  */
-export default class HttpRequestUtil {
+export default class HttpUtil {
     private static request;
     static get(url: string, opts?: RequestOpts): Promise<any>;
     static post(url: string, opts?: RequestOpts): Promise<any>;

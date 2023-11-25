@@ -1,5 +1,5 @@
 import assert from 'assert';
-import HttpRequestUtil from './http_request';
+import HttpUtil from './http';
 
 describe('http_request', () => {
 
@@ -9,7 +9,7 @@ describe('http_request', () => {
 
   it('get', async () => {
     try {
-      const result1 = await HttpRequestUtil.get(`http://baidu.com`)
+      const result1 = await HttpUtil.get(`http://baidu.com`)
       // console.error(result1)
       assert.strictEqual(result1.length > 10, true)
     } catch (err) {
@@ -20,7 +20,7 @@ describe('http_request', () => {
 
   it('post', async () => {
     try {
-      const result1 = await HttpRequestUtil.post(`http://baidu.com`, {
+      const result1 = await HttpUtil.post(`http://baidu.com`, {
         params: {
           token: `jsgs`,
         }
@@ -35,7 +35,7 @@ describe('http_request', () => {
 
   it('request', async () => {
     try {
-      const result1 = await HttpRequestUtil.post(`http://baidu.com`, {
+      const result1 = await HttpUtil.post(`http://baidu.com`, {
         params: {
           token: `jsgs`,
         },

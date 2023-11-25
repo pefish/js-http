@@ -1,21 +1,21 @@
 {
-  "name": "@pefish/js-util-httprequest",
-  "version": "0.2.0",
-  "description": "httprequest tool of js",
+  "name": "@pefish/js-http",
+  "version": "0.2.1",
+  "description": "http tool of js",
   "keywords": [
     "common",
     "js",
     "tool"
   ],
-  "homepage": "https://github.com/pefish/js-httprequest",
-  "bugs": "https://github.com/pefish/js-httprequest/issues",
+  "homepage": "https://github.com/pefish/js-http",
+  "bugs": "https://github.com/pefish/js-http/issues",
   "license": "MIT",
   "author": "pefish",
-  "types": "./types/http_request.d.ts",
+  "types": "./types/http.d.ts",
   "engines": {
     "node": "*"
   },
-  "main": "lib/http_request.js",
+  "main": "lib/http.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/pefish/js-httprequest"
@@ -24,7 +24,7 @@
     "build": "rm -rf lib types && tsc",
     "test": "mocha --timeout 10000 --require ts-node/register src/**/*.test.ts",
     "t": "mocha --timeout 10000 --require ts-node/register",
-    "prepublish": "yarn build"
+    "prepublish": "npm run build"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
